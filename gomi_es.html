@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="Esta basura puede ser puesto out en qué día ? Es fácil de búsqueda del sitio lata.">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta property="og:locale" content="es_ES">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="La separación de basura - Tsu">
+	<meta property="og:site_name" content="La separación de basura - Tsu">
+	<meta property="og:url" content="http://gomi-t.moyashi-koubou.com/">
+	<meta property="og:description" content="Esta basura puede ser puesto out en qué día ? Es fácil de búsqueda del sitio lata.">
+	<meta property="og:image" content="http://gomi-t.moyashi-koubou.com/img/facebook_ogp.png">
+	<title>La separación de basura - Tsu</title>
+	<link rel="apple-touch-icon" href="img/trash_can_b_114.png" />
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/jquery.bootgrid.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="language">
+		<a href="/">日本語</a> / <a href="gomi_en.html">English</a> / <a href="gomi_es.html">Español</a> / <a href="gomi_cn.html">中文</a> /  <a href="readme.html"><span class="glyphicon glyphicon-question-sign"></span></a>
+	</div>
+<div id="contents">
+
+	<div class="logo">
+	<a href="/"><img src="img/trash_can_b_open.png"></a>
+	</div>
+
+	<div class="table-responsive">
+		<table id="main_table" class="table table-condensed table-hover table-striped">
+			<thead>
+			  <tr>
+			    <th data-column-id="hinmoku">artículo</th>
+			    <th data-column-id="kubun">clasificación</th>
+			    <th data-column-id="tyuui">Notas</th>
+			  </tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div id="footer">
+	<div class="readme"><a href="readme.html"><img src="img/trash_can_w.png" width="15px"> acerca de</a></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="js/papaparse.min.js"></script>
+<script src="js/jquery.bootgrid.js"></script>
+<script>
+Papa.parse("./csv/tsu_gomi.es.utf8.csv", {
+        download: true,
+        step: function(row)
+	{
+	var append_value = "<tr><td>" + row.data[0][1] + "</td><td>" + row.data[0][2] + "</td><td>" + row.data[0][3] + "</td></tr>";
+	$('#main_table tbody').append(append_value);
+        },
+	complete: function() {
+	  $("#main_table").bootgrid({
+	   rowCount: 50
+	  });
+	}
+});
+</script>
+</body>
+</html>
