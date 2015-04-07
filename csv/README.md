@@ -30,7 +30,7 @@ http://gomi-tsu.moyashi-koubou.com/
  
 関連情報
 --------
-1. [ゴミ分別検索さん](http://gomi-t.moyashi-koubou.com/ "ゴミ分別検索さん")
+1. [ゴミ分別検索さん](http://gomi-tsu.moyashi-koubou.com/ "ゴミ分別検索さん")
 2. [津市オープンデータライブラリ「みんなのデータ」](http://www.info.city.tsu.mie.jp/modules/dept1012/article.php?articleid=50 "みんなのデータ")
 
  
