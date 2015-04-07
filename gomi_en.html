@@ -43,7 +43,9 @@
 	</div>
 </div>
 <div id="footer">
-	<div class="readme"><a href="readme.html"><img src="img/trash_can_w.png" width="15px"> About this site</a></div>
+	<div class="calender"><a href="http://www.info.city.tsu.mie.jp/modules/dept1025/article.php?articleid=203"><span class="glyphicon glyphicon-calendar"></span>Collection calendar</a></div>
+	<div class="guidebook"><a href="http://www.info.city.tsu.mie.jp/uploads/photos/34339.pdf"><span class="glyphicon glyphicon-book"></span>Fractionation guidebook(pdf)</a></div>
+	<div class="readme"><a href="readme.html"><span class="glyphicon glyphicon-trash"></span>About this site</a></div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -55,7 +57,7 @@ Papa.parse("./csv/tsu_gomi.en.utf8.csv", {
         download: true,
         step: function(row)
 	{
-	 var append_value = "<tr><td>" + row.data[0][1] + "</td><td>" + row.data[0][2] + "</td><td>" + row.data[0][3] + "</td></tr>";
+	 var append_value = "<tr><td>" + row.data[0][1] + "</td><td>" + row.data[0][2] + "</td><td>" + row.data[0][4] + "</td></tr>";
 	$('#main_table tbody').append(append_value);
         },
 	complete: function() {
@@ -64,6 +66,16 @@ Papa.parse("./csv/tsu_gomi.en.utf8.csv", {
 	  });
 	}
 });
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-33516661-11', 'auto');
+  ga('send', 'pageview');
+
 </script>
 </body>
 </html>

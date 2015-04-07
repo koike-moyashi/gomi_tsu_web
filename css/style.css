@@ -14,14 +14,18 @@ input.search-field.form-control{height: 2em;font-size: 1.5em;}
 .bootgrid-table th:active {background: #BEA784;}
 .pagination>.active>a,.pagination>.active>a:focus, .pagination>.active>a:hover{background-color: #CDB28A;border-color: #BEA784;}
 #contents .pagination>li.active>a{color: white;}
+div.dropdown{display:none;}
 
 th {background-color: #CDB28A;}
 th span.text{color: white;}
 div.infos{display:none;}
 
 div.readme{text-align: right;padding: 1em;}
-div.readme a{color: white;}
+div.calender,div.guidebook{float: left;padding: 1em;}
+div.calender a,div.guidebook a,div.readme a{color: white;}
+
 #footer{height: 5em;background-color: #CDB28A;width: 100%;margin-top: 3em;}
+#footer .glyphicon{margin-right: 5px;}
 
 /*  Media Queries (mobile browsing)
 ----------------------------------------------------- */
@@ -33,4 +37,7 @@ div.readme a{color: white;}
 #contents{margin-left: 0;padding-left: 2%;width: 98%;}
 #contents img.search{width: 100%;}
 div.col-sm-6{text-align: center;}
+div.calender,div.guidebook,div.readme{float:none; padding:0.5em;text-align:inherit;}
+div.calender{padding-top:1em}
+#footer{height: 8em;}
 }
