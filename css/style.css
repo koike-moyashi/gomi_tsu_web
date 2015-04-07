@@ -1,6 +1,6 @@
 #contents{margin-left: 10%;margin-top: 1.5em;width: 80%;}
 #contents h3{border-left: 7px solid #CDB28A; padding: 0.1em 0 0.1em 0.5em; margin-top: 1.5em; margin-bottom: 1em;}
-#contents a{color: #908066;}
+#contents a{color: #908066;word-wrap: break-word;}
 
 #header{padding: 0.5em;background-color: #CDB28A;}
 #header div.title{float:left; margin-left:1em;color: white;}
@@ -43,9 +43,12 @@ div.calender a,div.guidebook a,div.readme a{color: white;}
 #header div.language a{margin:7px;}
 #contents{margin-left: 0;padding-left: 2%;width: 98%;}
 #contents img.search{width: 100%;}
+#contents ul{padding-left: 0px;}
+#contents li{padding-bottom: 1em;}
 
 div.col-sm-6{text-align: center;}
 div.calender,div.guidebook,div.readme{float:none; padding:0.5em;text-align:inherit;}
 div.calender{padding-top:1em}
+
 #footer{height: 8em;}
 }
