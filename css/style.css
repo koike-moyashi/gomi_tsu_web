@@ -2,13 +2,18 @@
 #contents h3{border-left: 7px solid #CDB28A; padding: 0.1em 0 0.1em 0.5em; margin-top: 1.5em; margin-bottom: 1em;}
 #contents a{color: #908066;word-wrap: break-word;}
 
-#header{padding: 0.5em;background-color: #CDB28A;}
-#header div.title{float:left; margin-left:1em;color: white;}
+#header{padding: 0.5em;background-color: #CDB28A;color: white;}
+#header a{color: white;}
+#header div.title{float:left; margin-left:1em;}
 #header div.language{text-align: right;color: white;}
-#header div.language a{margin: 10px;color: white;}
+#header div.language a{margin: 10px;}
 #header div.language a.current{font-weight: bold;}
 div.logo{text-align: center;}
 div.logo_readme img{width: 100%; max-width: 400px;}
+
+#loader-bg {display: none;position: fixed;width: 100%;height: 100%;top: 0px;left: 0px;background: #fff;z-index: 1;}
+#loader {display: none;position: fixed;top: 30%;left: 50%;width: 200px;height: 200px;margin-top: -100px;margin-left: -100px;text-align: center;color: #000;z-index: 2;}
+#loader p{margin-bottom: 2em;}
 
 div.search.form-group{width: 100%;}
 input.search-field.form-control{height: 2em;font-size: 1.5em;}
