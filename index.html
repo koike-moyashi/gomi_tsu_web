@@ -3,16 +3,16 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="description" content="このゴミは何の日に出せばよい？を簡単に検索できるサイトです。">
+	<meta name="description" content="このゴミは何の日に出せばよい？を簡単に検索できるサイトです（三重県津市用）">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta property="og:locale" content="ja_JP">
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="ゴミ分別検索さん - 三重県津市">
-	<meta property="og:site_name" content="ゴミ分別検索さん - 三重県津市">
+	<meta property="og:title" content="分別さん - 津市のごみは僕にまかせろ!">
+	<meta property="og:site_name" content="分別さん - 津市のごみは僕にまかせろ!">
 	<meta property="og:url" content="http://gomi-tsu.moyashi-koubou.com/">
-	<meta property="og:description" content="このゴミは何の日に出せばよい？を簡単に検索できるサイトです。">
+	<meta property="og:description" content="このゴミは何の日に出せばよい？を簡単に検索できるサイトです（三重県津市用）">
 	<meta property="og:image" content="http://gomi-tsu.moyashi-koubou.com/img/facebook_ogp.png">
-	<title>ゴミ分別検索さん - 三重県津市</title>
+	<title>分別さん - 津市のごみは僕にまかせろ!</title>
 	<link rel="apple-touch-icon" href="img/trash_can_b_114.png" />
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/jquery.bootgrid.css">
@@ -25,16 +25,23 @@
 <body>
 <div id="header">
 	<div class="title">
-		津市のごみは僕にまかせろ!　～ごみ分別検索さん～
+		<a href="/">分別さん - 津市のごみは僕にまかせろ!</a>
 	</div>
 	<div class="language">
 		<a href="/" class="current">日本語</a> / <a href="gomi_en.html">English</a> / <a href="gomi_es.html">Español</a> / <a href="gomi_cn.html">中文</a> /  <a href="readme.html"><span class="glyphicon glyphicon-question-sign"></span></a>
 	</div>
 </div>
 <div id="contents">
-
 	<div class="logo">
-	<a href="/"><img src="img/trash_can_b_open.png"></a>
+		<a href="/"><img src="img/trash_can_b_open.png"></a>
+	</div>
+
+	<div id="loader-bg">
+		<div id="loader">
+			<p><img src="img/trash_can_b_open.png">
+			<img src="img/load-line.gif" width="48" height="48" alt="Now Loading..." /></p>
+			<p>Now Loading...</p>
+		</div>
 	</div>
 
 	<div class="table-responsive">
@@ -63,19 +70,43 @@
 <script src="js/papaparse.min.js"></script>
 <script src="js/jquery.bootgrid.js"></script>
 <script>
+//loading画面を出す
+$(function() {
+	var h = $(window).height();
+	$('#main_table').css('display','none');
+	$('#loader-bg ,#loader').height(h).css('display','block');
+});
+
+//csvのパース
 Papa.parse("./csv/tsu_gomi.ja.utf8.csv", {
         download: true,
         step: function(row)
 	{
 	 var append_value = "<tr><td>" + row.data[0][1] + "</td><td>" + row.data[0][2] + "</td><td>" + row.data[0][3] + "</td><td>" + row.data[0][5] + "</td></tr>";
-	$('#main_table tbody').append(append_value);
+
+	 $('#main_table tbody').append(append_value);
         },
 	complete: function() {
+	  //検索、並び替え
 	  $("#main_table").bootgrid({
 	   rowCount: 50
 	  });
+	  //読み込みが完了したら表示
+	  $('#loader-bg').hide();
+	  $('#loader').hide();
+	  $('#main_table').css('display', 'block');
 	}
 });
+
+//10秒たったら強制的にロード画面を非表示
+$(function(){
+ 	setTimeout('stopload()',10000);
+});
+function stopload(){
+	$('#wrap').css('display','block');
+	$('#loader-bg').hide();
+	$('#loader').hide();
+}
 </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

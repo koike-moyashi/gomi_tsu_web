@@ -3,16 +3,16 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="description" content="这个垃圾可放出来是什么日子？它是易于搜索可以现场。">
+	<meta name="description" content="这个垃圾可放出来是什么日子？它是易于搜索可以现场。（津市，三重县）">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta property="og:locale" content="zh_CN">
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="垃圾分类搜索先生-津市">
-	<meta property="og:site_name" content="垃圾分类搜索先生-津市">
+	<meta property="og:title" content="分馏先生">
+	<meta property="og:site_name" content="分馏先生">
 	<meta property="og:url" content="http://gomi-tsu.moyashi-koubou.com/">
-	<meta property="og:description" content="这个垃圾可放出来是什么日子？它是易于搜索可以现场。">
+	<meta property="og:description" content="这个垃圾可放出来是什么日子？它是易于搜索可以现场。（津市，三重县）">
 	<meta property="og:image" content="http://gomi-tsu.moyashi-koubou.com/img/facebook_ogp.png">
-	<title>垃圾分类搜索先生-津市</title>
+	<title>分馏先生</title>
 	<link rel="apple-touch-icon" href="img/trash_can_b_114.png" />
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/jquery.bootgrid.css">
@@ -21,16 +21,23 @@
 <body>
 <div id="header">
 	<div class="title">
-		～ごみぶんべつけんさくさん～
+		<a href="/">～ぶんべつさん～</a>
 	</div>
 	<div class="language">
 		<a href="/">日本語</a> / <a href="gomi_en.html">English</a> / <a href="gomi_es.html">Español</a> / <a href="gomi_cn.html" class="current">中文</a> /  <a href="readme.html"><span class="glyphicon glyphicon-question-sign"></span></a>
 	</div>
 </div>
 <div id="contents">
-
 	<div class="logo">
-	<a href="/"><img src="img/trash_can_b_open.png"></a>
+		<a href="/"><img src="img/trash_can_b_open.png"></a>
+	</div>
+
+	<div id="loader-bg">
+		<div id="loader">
+			<p><img src="img/trash_can_b_open.png">
+			<img src="img/load-line.gif" width="48" height="48" alt="Now Loading..." /></p>
+			<p>Now Loading...</p>
+		</div>
 	</div>
 
 	<div class="table-responsive">
@@ -58,18 +65,42 @@
 <script src="js/papaparse.min.js"></script>
 <script src="js/jquery.bootgrid.js"></script>
 <script>
+//loading画面を出す
+$(function() {
+	var h = $(window).height();
+	$('#main_table').css('display','none');
+	$('#loader-bg ,#loader').height(h).css('display','block');
+});
+
+//csvのパース
 Papa.parse("./csv/tsu_gomi.zh.utf8.csv", {
         download: true,
         step: function(row)
 	{
-	 var append_value = "<tr><td>" + row.data[0][1] + "</td><td>" + row.data[0][2] + "</td><td>" + row.data[0][4] + "</td></tr>";	$('#main_table tbody').append(append_value);
+	 var append_value = "<tr><td>" + row.data[0][1] + "</td><td>" + row.data[0][2] + "</td><td>" + row.data[0][4] + "</td></tr>";
+	 $('#main_table tbody').append(append_value);
         },
 	complete: function() {
+	  //検索、並び替え
 	  $("#main_table").bootgrid({
 	   rowCount: 50
 	  });
+	  //読み込みが完了したら表示
+	  $('#loader-bg').hide();
+	  $('#loader').hide();
+	  $('#main_table').css('display', 'block');
 	}
 });
+
+//10秒たったら強制的にロード画面を非表示
+$(function(){
+ 	setTimeout('stopload()',10000);
+});
+function stopload(){
+	$('#wrap').css('display','block');
+	$('#loader-bg').hide();
+	$('#loader').hide();
+}
 </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
