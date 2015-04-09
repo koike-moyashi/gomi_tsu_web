@@ -3,7 +3,7 @@ body {font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragin
 #contents{margin-left: 10%;margin-top: 1.5em;width: 80%;}
 #contents h3{border-left: 7px solid #CDB28A; padding: 0.1em 0 0.1em 0.5em; margin-top: 1.5em; margin-bottom: 1em;}
 #contents a{color: #908066;word-wrap: break-word;}
-#contents a.bold{font-weight: bold;font-size: 1.2em;}
+#contents a.bold{font-weight: bold;font-size: 2em;}
 #contents img.honyaku{width: 100%;margin: 1em 0;}
 #contents p.bold{font-size:2em;margin: 1em 0;}
 
