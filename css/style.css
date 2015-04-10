@@ -4,8 +4,10 @@ body {font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragin
 #contents h3{border-left: 7px solid #CDB28A; padding: 0.1em 0 0.1em 0.5em; margin-top: 1.5em; margin-bottom: 1em;}
 #contents a{color: #908066;word-wrap: break-word;}
 #contents a.bold{font-weight: bold;font-size: 2em;}
+#contents a.underline{text-decoration: underline;font-weight: bold;}
 #contents img.honyaku{width: 100%;margin: 1em 0;}
 #contents p.bold{font-size:2em;margin: 1em 0;}
+#contents li{margin-bottom: 0.5em;}
 
 #header{padding: 0.5em;background-color: #CDB28A;color: white;}
 #header a{color: white;}
@@ -53,8 +55,7 @@ div.calender a,div.guidebook a,div.readme a{color: white;}
 #header div.language a{margin:7px;}
 #contents{margin-left: 0;padding-left: 2%;width: 98%;}
 #contents img.search{width: 100%;}
-#contents ul{padding-left: 0px;}
-#contents li{padding-bottom: 1em;}
+#contents ul{padding-left: 1em;}
 
 div.col-sm-6{text-align: center;}
 div.calender,div.guidebook,div.readme{float:none; padding:0.5em;text-align:inherit;}
