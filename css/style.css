@@ -42,6 +42,11 @@ div.calender a,div.guidebook a,div.readme a{color: white;}
 #footer{height: 5em;background-color: #CDB28A;width: 100%;margin-top: 3em;}
 #footer .glyphicon{margin-right: 5px;}
 
+@media print {
+a[href]:after {content: "" !important;}
+abbr[title]:after {content: "" !important;}
+}
+
 /*  Media Queries (mobile browsing)
 ----------------------------------------------------- */
 /* Tablet (portrait) */
