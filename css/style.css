@@ -8,6 +8,7 @@ body {font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragin
 #contents img.honyaku{width: 100%;margin: 1em 0;}
 #contents p.bold{font-size:2em;margin: 1em 0;}
 #contents li{margin-bottom: 0.5em;}
+#contents th.comment{width: 40%;}
 
 #header{padding: 0.5em;background-color: #CDB28A;color: white;}
 #header a{color: white;}
@@ -29,7 +30,7 @@ input.search-field.form-control{height: 2em;font-size: 1.5em;}
 .bootgrid-table th:active {background: #BEA784;}
 .pagination>.active>a,.pagination>.active>a:focus, .pagination>.active>a:hover{background-color: #CDB28A;border-color: #BEA784;}
 #contents .pagination>li.active>a{color: white;}
-div.dropdown{display:none;}
+#contents td.keyword,#contents th.keyword {display:none;}
 
 th {background-color: #CDB28A;}
 th span.text{color: white;}
