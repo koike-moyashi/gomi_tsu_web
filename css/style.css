@@ -62,6 +62,7 @@ abbr[title]:after {content: "" !important;}
 #contents{margin-left: 0;padding-left: 2%;width: 98%;}
 #contents img.search{width: 100%;}
 #contents ul{padding-left: 1em;}
+#loader {top: 50%;}
 
 div.col-sm-6{text-align: center;}
 div.calender,div.guidebook,div.readme{float:none; padding:0.5em;text-align:inherit;}
