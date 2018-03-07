@@ -40,7 +40,7 @@ div.readme{text-align: right;padding: 1em;}
 div.calender,div.guidebook{float: left;padding: 1em;}
 div.calender a,div.guidebook a,div.readme a{color: white;}
 
-#footer{height: 5em;background-color: #CDB28A;width: 100%;margin-top: 3em;}
+#footer{display: table;background-color: #CDB28A;width: 100%;margin-top: 3em;}
 #footer .glyphicon{margin-right: 5px;}
 
 @media print {

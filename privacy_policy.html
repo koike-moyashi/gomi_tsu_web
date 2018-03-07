@@ -15,11 +15,11 @@
 	<meta property="og:url" content="http://gomi-tsu.moyashi-koubou.com/">
 	<meta property="og:description" content="このゴミ、何ゴミ？入力ひとつで簡単検索。三重県津市のゴミ分別を検索できるサイトです。">
 	<meta property="og:image" content="http://gomi-tsu.moyashi-koubou.com/img/facebook_ogp.png">
-	<title>分別さん | 三重県津市のゴミ分別検索</title>
+	<title>プライバシーポリシー | 分別さん - 三重県津市のゴミ分別検索</title>
 	<link rel="apple-touch-icon" href="img/trash_can_b_114.png" />
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/jquery.bootgrid.css">
-	<link rel="stylesheet" href="css/style.css?ver=20180307">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div id="header">
@@ -34,103 +34,38 @@
 	<div class="logo">
 		<a href="/"><img src="img/trash_can_b_open.png"></a>
 	</div>
+  <h2>プライバシーポリシー</h2>
+  <p>分別さんは、三重県津市のゴミ分別を検索するサイトです。</p>
 
-	<div id="loader-bg">
-		<div id="loader">
-			<p><img src="img/trash_can_b_open.png">
-			<img src="img/load-line.gif" width="48" height="48" alt="Now Loading..." /></p>
-			<p>Now Loading...</p>
-		</div>
-	</div>
+  <h3>取得する情報</h3>
+  <p>検索されたゴミのキーワードを取得します。音声データその他は取得しません。</p>
 
-	<div class="table-responsive">
-		<table id="main_table" class="table table-condensed table-hover table-striped">
-			<thead>
-			  <tr>
-			    <th data-column-id="keyword" data-header-css-class="keyword" data-css-class="keyword">検索キーワード</th>
-			    <th data-column-id="hinmoku">品目</th>
-			    <th data-column-id="kubun">分別区分</th>
-			    <th data-column-id="tyuui" data-header-css-class="comment">出す時の注意点</th>
-			  </tr>
-			</thead>
-			<tbody>
-			</tbody>
-		</table>
-	</div>
+  <h3>個人情報の管理</h3>
+  <p>当サービスで個人情報は取得しません。</p>
+
+  <h3>取得データの開示・提供</h3>
+  <p>取得したキーワードの統計等をWeb上で開示、第三者へ提供することがあります。</p>
+
+  <h3>アクセス解析ツールについて</h3>
+  <p>当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。
+  このGoogleアナリティクスはトラフィックデータの収集のためにCookieを使用しています。このトラフィックデータは匿名で収集されており、個人を特定するものではありません。この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。</p>
+
+  <h3>免責事項</h3>
+  <p>当サービスの内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。</p>
+
+  <h3>お問い合せ</h3>
+  <p>情報の取扱に関するお問い合せは下記までご連絡ください。<br>
+  <a href="https://www.moyashi-koubou.com/mail/">https://www.moyashi-koubou.com/mail/</a></p>
 </div>
 <div id="footer">
 	<div class="calender"><a href="http://www.info.city.tsu.mie.jp/www/genre/1100000000011/index.html"><span class="glyphicon glyphicon-calendar"></span>収集カレンダー</a></div>
 	<div class="calender"><a href="http://www.info.city.tsu.mie.jp/www/genre/1100000000021/index.html"><span class="glyphicon glyphicon-leaf"></span>エコステーション一覧</a></div>
-	<div class="guidebook"><a href="privacy_policy.html"><span class="glyphicon glyphicon-heart"></span>プライバシーポリシー</a></div>
 	<div class="guidebook"><a href="https://play.google.com/store/apps/details?id=com.moyashikoubou.bunbetusan"><span class="glyphicon glyphicon-phone"></span>Androidアプリ</a></div>
 	<div class="readme"><a href="readme.html"><span class="glyphicon glyphicon-trash"></span>はじめてのかたへ</a></div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<!--[if !IE]><!-->
-<script src="js/papaparse.min.js"></script>
-<script src="js/jquery.bootgrid.js"></script>
-<!--<![endif]-->
-<!--[if gte IE 9]>
-<script src="js/papaparse.min.js"></script>
-<script src="js/jquery.bootgrid.js"></script>
-<![endif]-->
-<script>
-if(jQuery.support.opacity){
-	//loading画面を出す
-	$(function() {
-		var h = $(window).height();
-		$('#main_table').css('display','none');
-		$('#loader-bg ,#loader').height(h).css('display','block');
-	});
-
-	//csvのパース
-	Papa.parse("./csv/tsu_gomi.ja.utf8.csv", {
-	        download: true,
-	        step: function(row)
-		{
-		 var append_value = "<tr><td>" + row.data[0][1] + "</td><td>" + row.data[0][2] + "</td><td>" + row.data[0][3] + "</td><td>" + row.data[0][5] + "</td></tr>";
-
-		 $('#main_table tbody').append(append_value);
-	        },
-		complete: function() {
-		  //検索、並び替え
-		  $("#main_table").bootgrid({
-		   rowCount: 50,
-		   columnSelection: false,
-
-			//プレースホルダー thanks Hiroaki.Tanaka
-			labels :{
-				search: "ココに入力（ひらがな対応）",
-				noResults: "見つかりませんでした。<a href='noresult.html'><b>こちらをクリック</b>してください</a>。"
-			}
-		  });
-		  //読み込みが完了したら表示
-		  $('#loader-bg').hide();
-		  $('#loader').hide();
-		  $('#main_table').css('display', 'block');
-		}
-	});
-
-	//10秒たったら強制的にロード画面を非表示
-	$(function(){
-	 	setTimeout('stopload()',10000);
-	});
-	function stopload(){
-		$('#wrap').css('display','block');
-		$('#loader-bg').hide();
-		$('#loader').hide();
-	}
-
-} else { //IE8以前
-	$(function() {
-		$('#main_table').css('display','none');
-		$('#contents').html('<h2>大変申し訳ありません。お使いのブラウザには対応しておりません。</h2><br>InternetExplorer9以降、Firefox、Chromeブラウザ、スマートフォンアプリ等をお使い下さい。');
-	});
-}
-
-</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
