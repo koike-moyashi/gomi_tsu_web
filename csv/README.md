@@ -1,11 +1,11 @@
 ゴミ分別検索さん用データファイル
 ======================
 三重県津市のオープンデータを利用した「ゴミ分別検索さん」用のゴミ分別データ(csv)です。  
-http://gomi-tsu.moyashi-koubou.com/
+https://gomi-tsu.moyashi-koubou.com/
 
 サイトでは日本語の他に英語、スペイン語、中国語（簡体字）でゴミ分別の検索が可能ですが、外国語データに関しては機械翻訳の為、皆さまの修正をお待ちしております（特に誤解を与える点など、内容の一部分だけでもかまいません）。現在はgoogleスプレッドシートで共同編集ができる状態となっております。  
 分別さん - 翻訳協力のお願い 
-http://gomi-tsu.moyashi-koubou.com/honyaku.html
+https://gomi-tsu.moyashi-koubou.com/honyaku.html
  
  
 修正を送っていただいた方はサイトのサンクス欄に追加させていただく予定です。  
@@ -26,11 +26,11 @@ http://gomi-tsu.moyashi-koubou.com/honyaku.html
  
 関連情報
 --------
-1. [ゴミ分別検索さん](http://gomi-tsu.moyashi-koubou.com/ "ゴミ分別検索さん")
-2. [津市オープンデータライブラリ「みんなのデータ」](http://www.info.city.tsu.mie.jp/modules/dept1012/article.php?articleid=50 "みんなのデータ")
+1. [ゴミ分別検索さん](https://gomi-tsu.moyashi-koubou.com/ "ゴミ分別検索さん")
+2. [津市オープンデータライブラリ「みんなのデータ」](https://www.info.city.tsu.mie.jp/modules/dept1012/article.php?articleid=50 "みんなのデータ")
 
  
 ライセンス
 ----------
 このコンテンツは、以下の著作物を改変して利用しています。   
-津市オープンデータライブラリ [ごみ分別表](http://www.info.city.tsu.mie.jp/modules/dept1012/article.php?articleid=50 "みんなのデータ")、[クリエイティブ・コモンズ・ライセンス 表示 2.1 日本](http://creativecommons.org/licenses/by/2.1/jp/)
+津市オープンデータライブラリ [ごみ分別表](https://www.info.city.tsu.mie.jp/modules/dept1012/article.php?articleid=50 "みんなのデータ")、[クリエイティブ・コモンズ・ライセンス 表示 2.1 日本](http://creativecommons.org/licenses/by/2.1/jp/)
