@@ -1,146 +1,135 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="description" content="このゴミ、何ゴミ？入力ひとつで簡単検索。三重県津市のゴミ分別を検索できるサイトです。">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<meta name="apple-mobile-web-app-title" content="分別さん" />
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<meta property="og:locale" content="ja_JP">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="分別さん－津市のごみは僕にまかせろ!">
-	<meta property="og:site_name" content="分別さん－津市のごみは僕にまかせろ!">
-	<meta property="og:url" content="http://gomi-tsu.moyashi-koubou.com/">
-	<meta property="og:description" content="このゴミ、何ゴミ？入力ひとつで簡単検索。三重県津市のゴミ分別を検索できるサイトです。">
-	<meta property="og:image" content="http://gomi-tsu.moyashi-koubou.com/img/facebook_ogp.png">
-	<title>分別さん | 三重県津市のゴミ分別検索</title>
-	<link rel="apple-touch-icon" href="img/trash_can_b_114.png" />
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/jquery.bootgrid.css">
-	<link rel="stylesheet" href="css/style.css?ver=20180307">
-</head>
-<body>
-<div id="header">
-	<div class="title">
-		<a href="/">分別さん - 津市のごみは僕にまかせろ!</a>
-	</div>
-	<div class="language">
-		<a href="/" class="current">日本語</a> | <a href="gomi_ja_hira.html">ひらがな</a> | <a href="readme.html">はじめての方へ</a>
-	</div>
-</div>
-<div id="contents">
-	<div class="logo">
-		<a href="/"><img src="img/trash_can_b_open.png"></a>
-	</div>
+<html lang="ja">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="description" content="このゴミ、何ゴミ？入力ひとつで簡単検索。三重県津市のゴミ分別を検索できるサイトです。" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="apple-mobile-web-app-title" content="分別さん" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta property="og:locale" content="ja_JP" />
+        <meta property="og:title" content="分別さん - 津市のごみは僕にまかせろ!" />
+        <meta property="og:site_name" content="分別さん - 津市のごみは僕にまかせろ!" />
+        <meta property="og:url" content="http://gomi-tsu.moyashi-koubou.com/readme.htm" />
+        <meta property="og:description" content="このゴミ、何ゴミ？入力ひとつで簡単検索。三重県津市のゴミ分別を検索できるサイトです。" />
+        <meta property="og:image" content="http://gomi-tsu.moyashi-koubou.com/img/facebook_ogp.png" />
+        <title>分別さん | 三重県津市のゴミ分別検索</title>
+        <link rel="apple-touch-icon" href="img/trash_can_b_114.png" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/jquery.bootgrid.css" />
+        <link rel="stylesheet" href="css/style.css?ver=20180307" />
+    </head>
+    <body>
+        <div id="header">
+            <div class="title">
+                <a href="/">分別さん - 津市のごみは僕にまかせろ!</a>
+            </div>
+            <div class="language"><a href="/" class="current">日本語</a> | <a href="gomi_ja_hira.html">ひらがな</a> | <a href="readme.html">はじめての方へ</a></div>
+        </div>
+        <div id="contents">
+            <div class="logo">
+                <a href="/"><img src="img/trash_can_b_open.png" /></a>
+            </div>
 
-	<div id="loader-bg">
-		<div id="loader">
-			<p><img src="img/trash_can_b_open.png">
-			<img src="img/load-line.gif" width="48" height="48" alt="Now Loading..." /></p>
-			<p>Now Loading...</p>
-		</div>
-	</div>
+            <div id="loader-bg">
+                <div id="loader">
+                    <p><img src="img/trash_can_b_open.png" /> <img src="img/load-line.gif" width="48" height="48" alt="Now Loading..." /></p>
+                    <p>Now Loading...</p>
+                </div>
+            </div>
 
-	<div class="table-responsive">
-		<table id="main_table" class="table table-condensed table-hover table-striped">
-			<thead>
-			  <tr>
-			    <th data-column-id="keyword" data-header-css-class="keyword" data-css-class="keyword">検索キーワード</th>
-			    <th data-column-id="hinmoku">品目</th>
-			    <th data-column-id="kubun">分別区分</th>
-			    <th data-column-id="tyuui" data-header-css-class="comment">出す時の注意点</th>
-			  </tr>
-			</thead>
-			<tbody>
-			</tbody>
-		</table>
-	</div>
-</div>
-<div id="footer">
-	<div class="guidebook"><a href="readme.html"><span class="glyphicon glyphicon-trash"></span>はじめてのかたへ</a></div>
-	<div class="guidebook"><a href="http://www.info.city.tsu.mie.jp/www/genre/1100000000011/index.html"><span class="glyphicon glyphicon-calendar"></span>収集カレンダー</a></div>
-	<div class="guidebook"><a href="http://www.info.city.tsu.mie.jp/www/genre/1100000000021/index.html"><span class="glyphicon glyphicon-leaf"></span>エコステーション一覧</a></div>
-	<div class="guidebook"><a href="privacy_policy.html"><span class="glyphicon glyphicon-heart"></span>プライバシーポリシー</a></div>
-	<div class="guidebook"><a href="https://play.google.com/store/apps/details?id=com.moyashikoubou.bunbetusan"><span class="glyphicon glyphicon-phone"></span>Androidアプリ</a></div>
-	<div class="guidebook"><a href="https://assistant.google.com/services/a/uid/0000006b3fb38852"><span class="glyphicon glyphicon-volume-up"></span>google homeアプリ</a></div>
-</div>
+            <div class="table-responsive">
+                <table id="main_table" class="table table-condensed table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th data-column-id="keyword" data-header-css-class="keyword" data-css-class="keyword">検索キーワード</th>
+                            <th data-column-id="hinmoku">品目</th>
+                            <th data-column-id="kubun">分別区分</th>
+                            <th data-column-id="tyuui" data-header-css-class="comment">出す時の注意点</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="guidebook">
+                <a href="readme.html"><span class="glyphicon glyphicon-trash"></span>はじめてのかたへ</a>
+            </div>
+            <div class="guidebook">
+                <a href="http://www.info.city.tsu.mie.jp/www/genre/1100000000011/index.html"><span class="glyphicon glyphicon-calendar"></span>収集カレンダー</a>
+            </div>
+            <div class="guidebook">
+                <a href="http://www.info.city.tsu.mie.jp/www/genre/1100000000021/index.html"><span class="glyphicon glyphicon-leaf"></span>エコステーション一覧</a>
+            </div>
+            <div class="guidebook">
+                <a href="privacy_policy.html"><span class="glyphicon glyphicon-heart"></span>プライバシーポリシー</a>
+            </div>
+            <div class="guidebook">
+                <a href="https://play.google.com/store/apps/details?id=com.moyashikoubou.bunbetusan"><span class="glyphicon glyphicon-phone"></span>Androidアプリ</a>
+            </div>
+        </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<!--[if !IE]><!-->
-<script src="js/papaparse.min.js"></script>
-<script src="js/jquery.bootgrid.js"></script>
-<!--<![endif]-->
-<!--[if gte IE 9]>
-<script src="js/papaparse.min.js"></script>
-<script src="js/jquery.bootgrid.js"></script>
-<![endif]-->
-<script>
-if(jQuery.support.opacity){
-	//loading画面を出す
-	$(function() {
-		var h = $(window).height();
-		$('#main_table').css('display','none');
-		$('#loader-bg ,#loader').height(h).css('display','block');
-	});
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="js/papaparse.min.js"></script>
+        <script src="js/jquery.bootgrid.js"></script>
+        <script>
+            //loading画面を出す
+            $(function () {
+                var h = $(window).height();
+                $("#main_table").css("display", "none");
+                $("#loader-bg ,#loader").height(h).css("display", "block");
+                // });
 
-	//csvのパース
-	Papa.parse("./csv/tsu_gomi.ja.utf8.csv", {
-	        download: true,
-	        step: function(row)
-		{
-		 var append_value = "<tr><td>" + row.data[0][1] + "</td><td>" + row.data[0][2] + "</td><td>" + row.data[0][3] + "</td><td>" + row.data[0][5] + "</td></tr>";
+                //csvのパース
+                Papa.parse("./csv/tsu_gomi.ja.utf8.csv", {
+                    download: true,
+                    step: function (row, parser) {
+                        var append_value = "<tr><td>" + row.data[1] + "</td><td>" + row.data[2] + "</td><td>" + row.data[3] + "</td><td>" + row.data[5] + "</td></tr>";
 
-		 $('#main_table tbody').append(append_value);
-	        },
-		complete: function() {
-		  //検索、並び替え
-		  $("#main_table").bootgrid({
-		   rowCount: 50,
-		   columnSelection: false,
+                        $("#main_table tbody").append(append_value);
+                    },
+                    complete: function () {
+                        //検索、並び替え
+                        $("#main_table").bootgrid({
+                            rowCount: 50,
+                            columnSelection: false,
 
-			//プレースホルダー thanks Hiroaki.Tanaka
-			labels :{
-				search: "ココに入力（ひらがな対応）",
-				noResults: "見つかりませんでした。<a href='noresult.html'><b>こちらをクリック</b>してください</a>。"
-			}
-		  });
-		  //読み込みが完了したら表示
-		  $('#loader-bg').hide();
-		  $('#loader').hide();
-		  $('#main_table').css('display', 'block');
-		}
-	});
+                            //プレースホルダー thanks Hiroaki.Tanaka
+                            labels: {
+                                search: "ココに入力（ひらがな対応）",
+                                noResults: "見つかりませんでした。<a href='noresult.html'><b>こちらをクリック</b>してください</a>。",
+                            },
+                        });
+                        //読み込みが完了したら表示
+                        $("#loader-bg").hide();
+                        $("#loader").hide();
+                        $("#main_table").css("display", "block");
+                    },
+                });
+            });
 
-	//10秒たったら強制的にロード画面を非表示
-	$(function(){
-	 	setTimeout('stopload()',10000);
-	});
-	function stopload(){
-		$('#wrap').css('display','block');
-		$('#loader-bg').hide();
-		$('#loader').hide();
-	}
+            //10秒たったら強制的にロード画面を非表示
+            $(function () {
+                setTimeout("stopload()", 10000);
+            });
+            function stopload() {
+                $("#wrap").css("display", "block");
+                $("#loader-bg").hide();
+                $("#loader").hide();
+            }
+        </script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-080FPFJG5W"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
 
-} else { //IE8以前
-	$(function() {
-		$('#main_table').css('display','none');
-		$('#contents').html('<h2>大変申し訳ありません。お使いのブラウザには対応しておりません。</h2><br>InternetExplorer9以降、Firefox、Chromeブラウザ、スマートフォンアプリ等をお使い下さい。');
-	});
-}
-
-</script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-33516661-11', 'auto');
-  ga('send', 'pageview');
-
-</script>
-</body>
+            gtag("config", "G-080FPFJG5W");
+        </script>
+    </body>
 </html>
