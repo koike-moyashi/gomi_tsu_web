@@ -36,10 +36,14 @@
                 <a href="/"><img src="img/trash_can_b_open.png" /></a>
             </div>
 
-            <div id="loader-bg">
-                <div id="loader">
-                    <p><img src="img/trash_can_b_open.png" /> <img src="img/load-line.gif" width="48" height="48" alt="Now Loading..." /></p>
-                    <p>Now Loading...</p>
+            <div id="main_table-header" class="bootgrid-header container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 actionBar">
+                        <div class="search form-group">
+                            <div class="input-group"><span class="icon glyphicon input-group-addon glyphicon-search"></span> <input type="text" id="searchInput" class="search-field form-control" placeholder="ココに入力（ひらがな対応）" /></div>
+                        </div>
+                        <div class="actions btn-group"></div>
+                    </div>
                 </div>
             </div>
 
@@ -47,8 +51,7 @@
                 <table id="main_table" class="table table-condensed table-hover table-striped">
                     <thead>
                         <tr>
-                            <th data-column-id="keyword" data-header-css-class="keyword" data-css-class="keyword">検索キーワード</th>
-                            <th data-column-id="hinmoku">品目</th>
+                            <th data-column-id="hinmoku" style="min-width: 140px">品目</th>
                             <th data-column-id="kubun">分別区分</th>
                             <th data-column-id="tyuui" data-header-css-class="comment">出す時の注意点</th>
                         </tr>
@@ -77,52 +80,77 @@
 
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script src="js/papaparse.min.js"></script>
-        <script src="js/jquery.bootgrid.js"></script>
+        <!-- <script src="js/jquery.bootgrid.js"></script> -->
         <script>
             //loading画面を出す
             $(function () {
-                var h = $(window).height();
-                $("#main_table").css("display", "none");
-                $("#loader-bg ,#loader").height(h).css("display", "block");
-                // });
+                // CSVファイルのパス
+                var csvFilePath = "./csv/tsu_gomi.ja.utf8.csv";
 
-                //csvのパース
-                Papa.parse("./csv/tsu_gomi.ja.utf8.csv", {
-                    download: true,
-                    step: function (row, parser) {
-                        var append_value = "<tr><td>" + row.data[1] + "</td><td>" + row.data[2] + "</td><td>" + row.data[3] + "</td><td>" + row.data[5] + "</td></tr>";
+                // CSVファイルの読み込みと検索
+                $(document).ready(function () {
+                    // CSVファイルを非同期で読み込む
+                    Papa.parse(csvFilePath, {
+                        download: true,
+                        header: true,
+                        skipEmptyLines: true,
+                        complete: function (results) {
+                            var data = results.data;
+                            // 検索用の関数
+                            function search(query) {
+                                var searchResults = [];
+                                data.forEach(function (row) {
+                                    // 各行の値を検索する
+                                    for (var key in row) {
+                                        if (row.hasOwnProperty(key) && row[key].toLowerCase().includes(query.toLowerCase())) {
+                                            searchResults.push(row);
+                                            break;
+                                        }
+                                    }
+                                });
+                                return searchResults;
+                            }
 
-                        $("#main_table tbody").append(append_value);
-                    },
-                    complete: function () {
-                        //検索、並び替え
-                        $("#main_table").bootgrid({
-                            rowCount: 50,
-                            columnSelection: false,
+                            // 入力された文字列で検索を実行
+                            $("#searchInput").on("input", function () {
+                                var query = $(this).val().trim(); // 前後の空白を削除
+                                if (query.length >= 1) {
+                                    // 1文字以上の入力がある場合のみ検索を行う
+                                    var results = search(query);
+                                    displayResults(results);
+                                } else {
+                                    $("#main_table tbody").empty(); // 入力が基準未満の場合は検索結果をクリア
+                                }
+                            });
 
-                            //プレースホルダー thanks Hiroaki.Tanaka
-                            labels: {
-                                search: "ココに入力（ひらがな対応）",
-                                noResults: "見つかりませんでした。<a href='noresult.html'><b>こちらをクリック</b>してください</a>。",
-                            },
-                        });
-                        //読み込みが完了したら表示
-                        $("#loader-bg").hide();
-                        $("#loader").hide();
-                        $("#main_table").css("display", "block");
-                    },
+                            // 検索結果を表示する
+                            function displayResults(results) {
+                                var tableBody = $("#main_table tbody");
+                                tableBody.empty(); // テーブルをクリア
+                                if (results.length > 0) {
+                                    results.forEach(function (result) {
+                                        // テーブルの行を追加
+                                        var rowHtml = "<tr>";
+                                        if (result.hasOwnProperty("hinmoku")) {
+                                            rowHtml += "<td>" + result["hinmoku"] + "</td>";
+                                        }
+                                        if (result.hasOwnProperty("kubun")) {
+                                            rowHtml += "<td>" + result["kubun"] + "</td>";
+                                        }
+                                        if (result.hasOwnProperty("note")) {
+                                            rowHtml += "<td>" + result["note"] + "</td>";
+                                        }
+                                        rowHtml += "</tr>";
+                                        tableBody.append(rowHtml);
+                                    });
+                                } else {
+                                    tableBody.append("<tr><td colspan='3'>見つかりませんでした。<a href='noresult.html'><b>こちらをクリック</b>して下さい</a>。</td></tr>");
+                                }
+                            }
+                        },
+                    });
                 });
             });
-
-            //10秒たったら強制的にロード画面を非表示
-            $(function () {
-                setTimeout("stopload()", 10000);
-            });
-            function stopload() {
-                $("#wrap").css("display", "block");
-                $("#loader-bg").hide();
-                $("#loader").hide();
-            }
         </script>
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-080FPFJG5W"></script>

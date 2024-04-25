@@ -33,8 +33,9 @@ input.search-field.form-control{height: 2em;font-size: 1.5em;}
 #contents td.keyword,#contents th.keyword {display:none;}
 
 th {background-color: #CDB28A;}
-th span.text{color: white;}
+th {color: white;}
 div.infos{display:none;}
+td {white-space: inherit !important;}
 
 div.calender,div.guidebook{padding: 0.5em 0 0.5em 2em;}
 div.calender a,div.guidebook a,div.readme a{color: white;}
