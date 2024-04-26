@@ -43,7 +43,7 @@
                         <div class="search form-group">
                             <div class="input-group"><span class="icon glyphicon input-group-addon glyphicon-search"></span> <input type="text" id="searchInput" class="search-field form-control" placeholder="ここに にゅうりょく" /></div>
                         </div>
-                        <div class="actions btn-group"></div>
+                        <div id="input_msg" class="h6 text-left"></div>
                     </div>
                 </div>
             </div>
@@ -115,7 +115,10 @@
                             // 入力された文字列で検索を実行
                             $("#searchInput").on("input", function () {
                                 var query = $(this).val().trim(); // 前後の空白を削除
-                                if (query.length >= 1) {
+                                if (query.length == 1) {
+                                    // 1文字以上の入力がある場合のみ検索を行う
+                                    $("#input_msg").html("２もじよりおおく にゅうりょう してください。１もじのばあいは、ひらがなをいれてください。れい）土→つち");
+                                } else if (query.length >= 2) {
                                     // 1文字以上の入力がある場合のみ検索を行う
                                     var results = search(query);
                                     displayResults(results);
