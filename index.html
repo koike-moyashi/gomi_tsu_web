@@ -25,62 +25,67 @@
         <link rel="stylesheet" href="css/style.css?ver=20180307" />
     </head>
     <body>
-        <div id="header">
-            <div class="title">
-                <a href="/">分別さん - 津市のごみは僕にまかせろ!</a>
-            </div>
-            <div class="language"><a href="/" class="current">日本語</a> | <a href="gomi_ja_hira.html">ひらがな</a> | <a href="readme.html">はじめての方へ</a></div>
-        </div>
-        <div id="contents">
-            <div class="logo">
-                <a href="/"><img src="img/trash_can_b_open.png" /></a>
-            </div>
-
-            <div id="main_table-header" class="bootgrid-header container-fluid mb-5">
-                <div class="row">
-                    <div class="col-sm-12 actionBar">
-                        <div class="search form-group">
-                            <div class="input-group"><span class="icon glyphicon input-group-addon glyphicon-search"></span> <input type="text" id="searchInput" class="search-field form-control" placeholder="ココに入力（ひらがな対応）" /></div>
-                        </div>
-                        <div id="input_msg" class="h6 text-left"></div>
+        <div class="wrap">
+            <div id="header">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="title">
+                        <a href="/">分別さん - 津市のごみは僕にまかせろ!</a>
                     </div>
+                    <div class="language"><a href="/" class="current">日本語</a> | <a href="gomi_ja_hira.html">ひらがな</a> | <a href="readme.html">はじめての方へ</a></div>
                 </div>
             </div>
+            <div id="contents" class="col-md-8 col-md-offset-2">
+                <div class="logo">
+                    <a href="/"><img src="img/trash_can_b_open.png" /></a>
+                </div>
 
-            <div class="table-responsive">
-                <table id="main_table" class="table table-condensed table-hover table-striped">
-                    <thead>
-                        <tr>
-                            <th data-column-id="hinmoku" style="min-width: 140px">品目</th>
-                            <th data-column-id="kubun">分別区分</th>
-                            <th data-column-id="tyuui" data-header-css-class="comment">出す時の注意点</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+                <div id="main_table-header" class="bootgrid-header container-fluid mb-5">
+                    <div class="row">
+                        <div class="col-sm-12 actionBar">
+                            <div class="search form-group">
+                                <div class="input-group"><span class="icon glyphicon input-group-addon glyphicon-search"></span> <input type="text" id="searchInput" class="search-field form-control" placeholder="ココに入力（ひらがな対応）" /></div>
+                            </div>
+                            <div id="input_msg" class="h6 text-left"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="main_table" class="table table-condensed table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th data-column-id="hinmoku" style="min-width: 140px">品目</th>
+                                <th data-column-id="kubun">分別区分</th>
+                                <th data-column-id="tyuui" data-header-css-class="comment">出す時の注意点</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-        <div id="footer">
-            <div class="guidebook">
-                <a href="readme.html"><span class="glyphicon glyphicon-trash"></span>はじめてのかたへ</a>
-            </div>
-            <div class="guidebook">
-                <a href="https://www.info.city.tsu.mie.jp/www/genre/1100000000011/index.html"><span class="glyphicon glyphicon-calendar"></span>収集カレンダー</a>
-            </div>
-            <div class="guidebook">
-                <a href="https://www.info.city.tsu.mie.jp/www/genre/1100000000021/index.html"><span class="glyphicon glyphicon-leaf"></span>エコステーション一覧</a>
-            </div>
-            <div class="guidebook">
-                <a href="privacy_policy.html"><span class="glyphicon glyphicon-heart"></span>プライバシーポリシー</a>
-            </div>
-            <div class="guidebook">
-                <a href="https://play.google.com/store/apps/details?id=com.moyashikoubou.bunbetusan"><span class="glyphicon glyphicon-phone"></span>Androidアプリ</a>
+            <div id="footer">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="guidebook">
+                        <a href="readme.html"><span class="glyphicon glyphicon-trash"></span>はじめてのかたへ</a>
+                    </div>
+                    <div class="guidebook">
+                        <a href="https://www.info.city.tsu.mie.jp/www/genre/1100000000011/index.html"><span class="glyphicon glyphicon-calendar"></span>収集カレンダー</a>
+                    </div>
+                    <div class="guidebook">
+                        <a href="https://www.info.city.tsu.mie.jp/www/genre/1100000000021/index.html"><span class="glyphicon glyphicon-leaf"></span>エコステーション一覧</a>
+                    </div>
+                    <div class="guidebook">
+                        <a href="privacy_policy.html"><span class="glyphicon glyphicon-heart"></span>プライバシーポリシー</a>
+                    </div>
+                    <div class="guidebook">
+                        <a href="https://play.google.com/store/apps/details?id=com.moyashikoubou.bunbetusan"><span class="glyphicon glyphicon-phone"></span>Androidアプリ</a>
+                    </div>
+                </div>
             </div>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script src="js/papaparse.min.js"></script>
-        <!-- <script src="js/jquery.bootgrid.js"></script> -->
         <script>
             //loading画面を出す
             $(function () {
@@ -118,6 +123,7 @@
                                     // 1文字以上の入力がある場合のみ検索を行う
                                     $("#input_msg").html("２文字以上 入力してください。１文字の場合はひらがなを入力。例）土→つち");
                                 } else if (query.length >= 2) {
+                                    $("#input_msg").empty();
                                     // 1文字以上の入力がある場合のみ検索を行う
                                     var results = search(query);
                                     displayResults(results);
