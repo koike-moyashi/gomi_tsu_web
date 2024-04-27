@@ -110,9 +110,13 @@
                                 data.forEach(function (row) {
                                     // 各行の値を検索する
                                     for (var key in row) {
-                                        if (row.hasOwnProperty(key) && row[key].toLowerCase().includes(query.toLowerCase())) {
-                                            searchResults.push(row);
-                                            break;
+                                        if (key == "hiragana") {
+                                            let value = row[key];
+                                            if (value.indexOf(query) != -1) {
+                                                // 検索文字列が見つかった場合は結果に追加
+                                                searchResults.push(row);
+                                                break;
+                                            }
                                         }
                                     }
                                 });
