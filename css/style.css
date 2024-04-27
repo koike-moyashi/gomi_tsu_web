@@ -12,18 +12,15 @@ body {
   padding: 0.5em;
   background-color: #CDB28A;
   color: white;
-  /* Mobile (portrait) */
 }
 .wrap #header a {
   color: white;
 }
 .wrap #header .title {
-  float: left;
   margin-left: 1em;
 }
 @media only screen and (max-width: 767px) {
   .wrap #header .title {
-    float: none;
     margin-bottom: 1em;
     margin-left: 0;
     font-size: 0.5em;
@@ -51,6 +48,20 @@ body {
 .wrap #contents {
   margin-top: 1.5em;
   margin-bottom: 4em;
+}
+.wrap #contents .logo {
+  display: flex;
+  justify-content: center;
+}
+.wrap #contents .logo #gomi_msg {
+  font-size: 0.8em;
+  margin-left: 1em;
+  margin-top: 0.5em;
+  max-width: 65%;
+}
+.wrap #contents .logo_readme img {
+  width: 100%;
+  max-width: 400px;
 }
 .wrap #contents h3 {
   border-left: 7px solid #CDB28A;
@@ -90,6 +101,9 @@ body {
 }
 .wrap #contents .pagination > li.active > a {
   color: white;
+}
+.wrap #contents td {
+  white-space: inherit !important;
 }
 .wrap #contents td.keyword,
 .wrap #contents th.keyword {
@@ -132,22 +146,6 @@ body {
 }
 .wrap #footer div.calender a, .wrap #footer div.guidebook a, .wrap #footer div.readme a {
   color: white;
-}
-
-div.logo {
-  text-align: center;
-}
-div.logo_readme img {
-  width: 100%;
-  max-width: 400px;
-}
-
-div.infos {
-  display: none;
-}
-
-td {
-  white-space: inherit !important;
 }
 
 @media print {

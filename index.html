@@ -37,6 +37,7 @@
             <div id="contents" class="col-md-8 col-md-offset-2">
                 <div class="logo">
                     <a href="/"><img src="img/trash_can_b_open.png" /></a>
+                    <div id="gomi_msg"></div>
                 </div>
 
                 <div id="main_table-header" class="bootgrid-header container-fluid mb-5">
@@ -87,10 +88,9 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script src="js/papaparse.min.js"></script>
         <script>
-            //loading画面を出す
             $(function () {
                 // CSVファイルのパス
-                var csvFilePath = "./csv/tsu_gomi.ja.utf8.csv";
+                const csvFilePath = "./csv/tsu_gomi.ja.utf8.csv";
 
                 // CSVファイルの読み込みと検索
                 $(document).ready(function () {
@@ -100,13 +100,13 @@
                         header: true,
                         skipEmptyLines: true,
                         complete: function (results) {
-                            var data = results.data;
+                            let data = results.data;
                             // 検索用の関数
                             function search(query) {
-                                var searchResults = [];
+                                let searchResults = [];
                                 data.forEach(function (row) {
                                     // 各行の値を検索する
-                                    for (var key in row) {
+                                    for (let key in row) {
                                         if (row.hasOwnProperty(key) && row[key].toLowerCase().includes(query.toLowerCase())) {
                                             searchResults.push(row);
                                             break;
@@ -118,28 +118,29 @@
 
                             // 入力された文字列で検索を実行
                             $("#searchInput").on("input", function () {
-                                var query = $(this).val().trim(); // 前後の空白を削除
+                                let query = $(this).val().trim(); // 前後の空白を削除
                                 if (query.length == 1) {
                                     // 1文字以上の入力がある場合のみ検索を行う
                                     $("#input_msg").html("２文字以上 入力してください。１文字の場合はひらがなを入力。例）土→つち");
                                 } else if (query.length >= 2) {
                                     $("#input_msg").empty();
                                     // 1文字以上の入力がある場合のみ検索を行う
-                                    var results = search(query);
+                                    let results = search(query);
                                     displayResults(results);
                                 } else {
-                                    $("#main_table tbody").empty(); // 入力が基準未満の場合は検索結果をクリア
+                                    // 入力が基準未満の場合は検索結果をクリア
+                                    $("#main_table tbody").empty();
                                 }
                             });
 
                             // 検索結果を表示する
                             function displayResults(results) {
-                                var tableBody = $("#main_table tbody");
+                                let tableBody = $("#main_table tbody");
                                 tableBody.empty(); // テーブルをクリア
                                 if (results.length > 0) {
                                     results.forEach(function (result) {
                                         // テーブルの行を追加
-                                        var rowHtml = "<tr>";
+                                        let rowHtml = "<tr>";
                                         if (result.hasOwnProperty("hinmoku")) {
                                             rowHtml += "<td>" + result["hinmoku"] + "</td>";
                                         }
@@ -158,6 +159,25 @@
                             }
                         },
                     });
+
+                    let gomi_msg = [
+                        "ゴミ分別するあなたは素敵",
+                        "捨てるべきか、捨てざるべきか、人生は決断の連続…",
+                        "あなたって地球に優しいのね",
+                        "分別してえらい！あなたにノーベルえらいで賞を贈ります！",
+                        "ゴミ袋はゴミ箱の底に収納すると便利だぞ〜",
+                        "ゴミ袋の入ってた袋がゴミになるの、モヤッとしません？",
+                        "ゴミが片付くと気持ちがスッキリしていいぞう！",
+                        "昨日あった嫌なこと、ゴミと一緒に捨てちゃえ〜",
+                        "ゴミ分別は僕にまかせろ！",
+                        "まだ使えるものはリサイクルショップに持ってくのもいいよね",
+                        "片付けの途中でマンガ読んじゃうのあるある〜！",
+                        "いつも分別してくれてありがとう。あなたにいい事がありますように！",
+                        "きちんと分別できると気持ちいい〜！",
+                        "きちんと分別する事で徳を積めるらしいぞ〜！",
+                    ];
+                    let random = Math.floor(Math.random() * gomi_msg.length);
+                    $("#gomi_msg").text(gomi_msg[random]);
                 });
             });
         </script>
