@@ -164,6 +164,17 @@ body {
             }
         }
 
+        // google form
+        .g-form {
+            iframe {
+                width: 100%;
+                min-height: 120vh;
+                @media only screen and (max-width: 767px) {
+                    min-height: 170vh;
+                }
+            }
+        }
+
     }
 
 

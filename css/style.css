@@ -131,6 +131,15 @@ body {
   background-color: #CDB28A;
   border-color: #BEA784;
 }
+.wrap #contents .g-form iframe {
+  width: 100%;
+  min-height: 120vh;
+}
+@media only screen and (max-width: 767px) {
+  .wrap #contents .g-form iframe {
+    min-height: 170vh;
+  }
+}
 .wrap #footer {
   display: table;
   background-color: #CDB28A;
