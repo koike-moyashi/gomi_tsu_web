@@ -30,8 +30,11 @@
         <div class="wrap">
             <div id="header">
                 <div class="col-md-10 col-md-offset-1">
-                    <div class="title">
-                        <a href="/">ぶんべつさん - つしのごみはぼくにまかせろ!</a>
+                    <div class="head">
+                        <div class="title">
+                            <a href="/">ぶんべつさん - つしのごみはぼくにまかせろ!</a>
+                        </div>
+                        <div class="gtranslate_wrapper"></div>
                     </div>
                     <div class="language"><a href="/">日本語</a> | <a href="gomi_ja_hira.html" class="current">ひらがな</a> | <a href="readme.html">はじめての方へ</a></div>
                 </div>
@@ -184,8 +187,17 @@
                     let random = Math.floor(Math.random() * gomi_msg.length);
                     $("#gomi_msg").text(gomi_msg[random]);
                 });
+
+                // .gtranslate_wrapperのchangeイベントを監視
+                $(".gtranslate_wrapper").on("change", function () {
+                    $("#searchInput").attr("placeholder", "「ひらがな」を入力");
+                });
             });
         </script>
+        <script>
+            window.gtranslateSettings = { default_language: "ja", languages: ["ja", "en", "pt", "vi", "zh-TW", "es", "id"], wrapper_selector: ".gtranslate_wrapper", select_language_label: "Select Langege" };
+        </script>
+        <script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer></script>
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-080FPFJG5W"></script>
         <script>

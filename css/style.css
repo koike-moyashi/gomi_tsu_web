@@ -16,6 +16,15 @@ body {
 .wrap #header a {
   color: white;
 }
+.wrap #header .head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.wrap #header .head .gtranslate_wrapper {
+  color: black;
+  font-size: 0.8em;
+}
 .wrap #header .title {
   margin-left: 1em;
 }
@@ -155,6 +164,13 @@ body {
 }
 .wrap #footer div.calender a, .wrap #footer div.guidebook a, .wrap #footer div.readme a {
   color: white;
+}
+
+body.readme ul {
+  padding-left: 1em;
+}
+body.readme img {
+  margin-top: 0.5em;
 }
 
 @media print {

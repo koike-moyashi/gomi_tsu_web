@@ -16,6 +16,16 @@ body {
             color: white;
         }
 
+        .head {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            .gtranslate_wrapper {
+                color: black;
+                font-size: 0.8em;
+            }
+        }
+
         .title {
             margin-left: 1em;
 
@@ -169,6 +179,7 @@ body {
             iframe {
                 width: 100%;
                 min-height: 120vh;
+
                 @media only screen and (max-width: 767px) {
                     min-height: 170vh;
                 }
@@ -202,6 +213,17 @@ body {
                 color: white;
             }
         }
+    }
+}
+
+// readme
+body.readme {
+    ul {
+        padding-left: 1em;
+    }
+
+    img {
+        margin-top: 0.5em;
     }
 }
 
